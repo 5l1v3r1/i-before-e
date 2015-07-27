@@ -1,6 +1,6 @@
 for word (read /usr/share/dict/words) {
   set word (lowercase $word)
-  if (or (match [^c]ie $word) (match ^ie $word) (match cei $word)) {
+  if (and (or (match [^c]ei $word) (match ^ei $word)) (match cie $word)) {
     puts $word
   }
 }
