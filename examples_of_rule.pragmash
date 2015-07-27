@@ -1,0 +1,5 @@
+for word (read /usr/share/dict/words) {
+  if (or (match [^c]ie $word) (match cei $word)) {
+    puts $word
+  }
+}
