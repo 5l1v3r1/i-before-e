@@ -1,0 +1,15 @@
+set sumExceptions 0
+set sumRule 0
+for row (read freq_dict.txt) {
+  set comps (rep $row , \n)
+  set word (lowercase ([] $comps 1))
+  set freq ([] $comps 3)
+  if (or (match [^c]ei $word) (match ^ei $word) (match cie $word)) {
+    set sumExceptions (+ $sumExceptions $freq)
+  }
+  if (or (match [^c]ie $word) (match ^ie $word) (match cei $word)) {
+    set sumRule (+ $sumRule $freq)
+  }
+}
+puts rule: $sumRule
+puts exceptions: $sumExceptions
